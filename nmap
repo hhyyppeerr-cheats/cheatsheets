@@ -1,0 +1,65 @@
+░▀█▀░█▀█░█▀▄░█▀▀░█▀▀░▀█▀
+░░█░░█▀█░█▀▄░█░█░█▀▀░░█░
+░░▀░░▀░▀░▀░▀░▀▀▀░▀▀▀░░▀░
+
+nmap 192.168.0.1             # Scan de una IP
+nmap dominio.com             # Scan de un dominio
+nmap 192.168.0.1 192.168.0.2 # Scan de varias IPs
+nmap 192.168.0.1/24          # Scan usando notacion CIDR
+nmap 192.168.0.1-254         # Scan de un rango de IPs
+nmap -iL targets.txt         # Scan de un archivo con IPs
+nmap -iR 100                 # Scan de 100 IPs aleatorias
+
+░█▄█░█▀█░█▀▄░█▀█░█▀▀
+░█░█░█░█░█░█░█░█░▀▀█
+░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀
+
+nmap -sS # Scan SYN, sigiloso
+nmap -sT # Scan TCP
+nmap -sU # Scan UDP
+nmap -sA # Scan ACK
+nmap -sW # Scan Window
+nmap -sM # Scan Maimon
+nmap -sV # Scan de version
+
+░█░█░█▀█░█▀▀░▀█▀░░░░░█▀▄░▀█▀░█▀▀░█▀▀░█▀█░█░█░█▀▀░█▀▄░█░█
+░█▀█░█░█░▀▀█░░█░░▄▄▄░█░█░░█░░▀▀█░█░░░█░█░▀▄▀░█▀▀░█▀▄░░█░
+░▀░▀░▀▀▀░▀▀▀░░▀░░░░░░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░░▀░░▀▀▀░▀░▀░░▀░
+
+nmap -sn -iL targets.txt                      # Descubrir hosts activos
+sudo nmap -sn -PO -traceroute -iL targets.txt # Descubrir hosts intermedios
+
+░█▀█░█░█░█▀▀░█▀▄░▀█▀░█▀█░█▀▀
+░█▀▀░█░█░█▀▀░█▀▄░░█░░█░█░▀▀█
+░▀░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀
+
+nmap -sS google.com              # Scan silencioso
+nmap 192.168.0.1 -p 80           # Scan de un puerto
+sudo nmap -Pn -F -iL targets.txt # Scan de los 100 puertos más comunes
+
+░█▀▀░█▀▀░█▀▄░█░█░▀█▀░█▀▀░▀█▀░█▀█░█▀▀
+░▀▀█░█▀▀░█▀▄░▀▄▀░░█░░█░░░░█░░█░█░▀▀█
+░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+
+sudo nmap -Pn -sS -sV -p 443 192.168.0.1 # Scan de un puerto con version
+sudo nmap -Pn -sS -sV -p0- 192.168.0.1   # Scan de todos los puertos con version
+
+░█░█░█▀▄░█▀█
+░█░█░█░█░█▀▀
+░▀▀▀░▀▀░░▀░░
+
+sudo nmap -Pn -sUV -F -d3 google.com # Scan de un puerto con version y debug
+
+░█▀█░█░█░█▀█░█▀█░▀▀█░█▀█░█▀▄░█▀█░█▀▀
+░█▀█░▀▄▀░█▀█░█░█░▄▀░░█▀█░█░█░█░█░▀▀█
+░▀░▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀░░▀▀▀░▀▀▀
+
+ls /usr/share/nmap/scripts/                         # Listar scripts de nmap
+nmap -p80,443 --script http-methods -iL targets.txt # Ejecutar un script de nmap
+sudo nmap -sS -Pn -sV -sC -O -vv --open --reason --min-hostgroup 16 --min-rate 100 --max-parallelism=10 -F -oA output_nmap scanme.nmap.org # Scan completo
+
+░█▀█░▀█▀░█▀▄░█▀█░█▀▀
+░█░█░░█░░█▀▄░█░█░▀▀█
+░▀▀▀░░▀░░▀░▀░▀▀▀░▀▀▀
+
+cat nmapoutput.txt | grep -oE '[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' > targets.txt # Extraer IPs de un archivo nmapoutput.txt

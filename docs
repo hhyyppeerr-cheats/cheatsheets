@@ -1,0 +1,31 @@
+░█▀█░█▀█░█▀█░█▀▄░█▀█░█▀▀
+░█▀▀░█▀█░█░█░█░█░█░█░█░░
+░▀░░░▀░▀░▀░▀░▀▀░░▀▀▀░▀▀▀
+
+pandoc -s file.md -o file.pdf  # Convierte un archivo Markdown a PDF
+pandoc -s file.md -o file.html # Convierte un archivo Markdown a HTML
+pandoc -s file.md -o file.docx # Convierte un archivo Markdown a DOCX
+pandoc -s file.md -o file.epub # Convierte un archivo Markdown a EPUB
+pandoc -s file.docx -o file.md # Convierte un archivo DOCX a Markdown
+pandoc -s file.html -o file.md # Convierte un archivo HTML a Markdown
+pandoc -s file.pdf -o file.md  # Convierte un archivo PDF a Markdown
+pandoc -s file.epub -o file.md # Convierte un archivo EPUB a Markdown
+
+░█▀█░█▀▄░█▀▀░▀█▀░█░█
+░█▀▀░█░█░█▀▀░░█░░█▀▄
+░▀░░░▀▀░░▀░░░░▀░░▀░▀
+
+pdftk 1.pdf 2.pdf cat output merged.pdf   # Combina dos archivos PDF en uno solo
+pdftk input.pdf cat 1-4 output output.pdf # Extrae las páginas 1 a 4 de un archivo PDF
+pdftk input.pdf cat 1 output output.pdf   # Extrae la primera página de un archivo PDF
+
+░█▄█░█▀█░█▀▄░█▀█
+░█░█░█▀█░█▀▄░█▀▀
+░▀░▀░▀░▀░▀░▀░▀░░
+
+marp: true            # Habilita la sintaxis de Marp
+theme: default        # Tema por defecto
+paginate: true        # Habilita la paginación
+backgroundColor: #fff # Color de fondo
+color: #333           # Color del texto
+![bg](bg.jpg)         # Establece una imagen de fondo
